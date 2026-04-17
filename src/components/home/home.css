@@ -1,0 +1,20 @@
+.header {
+  position: relative;
+  background: url('../../../public/Header.jpg') center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* cubre todo */
+  background-color: rgba(0,0,0,0.6);
+}
+.headerContent {
+  position: relative; /* para que el texto quede encima del overlay */
+  color: white;
+  text-align: center;
+}
