@@ -3,7 +3,6 @@ const Navbar = () => {
   const total = 0;
   const token = false;
 
-  const logueado = true;
 
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
@@ -15,8 +14,8 @@ const Navbar = () => {
     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div className="navbar-nav">
         <a className="nav-link active" aria-current="page" href="#">Home</a>
-        {logueado ? <a className="nav-link" href="#">🔓Profile</a> : <a className="nav-link" href="#">🚪Register</a>}
-        {logueado ? <a className="nav-link" href="#">🔓Logout</a> : <a className="nav-link" href="#">🚪Login</a>}
+        
+        {token ? <a className="nav-link" href="#">🔓Logout</a> : <a className="nav-link" href="#">🚪Login</a>}
         <a className="nav-link" href="#">🛒total: {total}</a>
       </div>
     </div>
