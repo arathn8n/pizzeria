@@ -4,7 +4,7 @@ import React, {useState} from 'react'
 import {pizzas} from '../data/pizzas'
 
 const Home = () => {
-  const [total, setTotal] = useState(0)
+  
   const [datos, setDatos] = useState(pizzas)
 
   return (
@@ -21,7 +21,7 @@ const Home = () => {
     <section className='container'>
       <div className='row'>
         
-        <Card name="Napolitana"
+        {/* <Card name="Napolitana"
           price={5950}
           ingredients={["mozzarella", "tomates", "jamón", "orégano"]}
           img="https://tse2.mm.bing.net/th/id/OIP.YxBwJv6mziFtNgIbye3EhwHaE8?rs=1&pid=ImgDetMain&o=7&rm=3" />
@@ -38,7 +38,7 @@ const Home = () => {
           <Card name="Pepperoni"
             price={6950}
             ingredients={["mozzarella", "pepperoni", "orégano"]}
-            img="https://th.bing.com/th/id/OIP.K4rzg3rTYg4Hk6ZBX_Fs9gHaE8?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3"/>
+            img="https://th.bing.com/th/id/OIP.K4rzg3rTYg4Hk6ZBX_Fs9gHaE8?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3"/> */}
         
 
         
@@ -53,7 +53,7 @@ const Home = () => {
             />
           )}
 
-          <div priceTotal={total}>total: {total}</div>
+          
       </div>
     </section>
     </>
