@@ -26,9 +26,11 @@ const Card = (props) => {
       </p>
       <p>precio: {props.price}</p>
       <button type="button" className="btn btn-light">Ver más</button>
-      <button type="button" className="btn btn-primary" onClick={handleClickIncrement}>Añadir</button>
-      <p>{contador}</p>
-      <button type="button" className="btn btn-danger" onClick={handleClickDecrement}>quitar</button>
+      <div className='d-flex'>
+        <button type="button" className="btn btn-primary" onClick={handleClickIncrement}>Añadir</button>
+        <p className='mx-2'>{contador}</p>
+        <button type="button" className="btn btn-danger" onClick={handleClickDecrement}>quitar</button>
+      </div>
     </div>
 
   </div>
