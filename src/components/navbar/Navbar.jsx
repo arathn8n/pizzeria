@@ -23,6 +23,9 @@ const Navbar = () => {
         <Link to="/login" className='nav-link'>
           login
         </Link>
+        <Link to="/profile" className='nav-link'>
+          perfil
+        </Link>
         {/* {token ? <a className="nav-link" href="#">🔓Logout</a> : <a className="nav-link" href="#">🚪Login</a>} */}
         <a className="nav-link" href="#">🛒total: {total}</a>
       </div>

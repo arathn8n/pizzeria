@@ -3,12 +3,12 @@ import Home from './components/home/Home'
 import Footer from './components/footer/Footer'
 import Form from "./components/formulario/Form"
 import Register from "./components/formulario/register"
+import NotFound from './components/notFound/NotFound'
+import Profile from './components/profile/Profile'
 import { Route, Routes } from "react-router-dom"
 
 function App() {
-  
-  
-  
+
 
   return (
     <>
@@ -29,9 +29,18 @@ function App() {
           path="/login"
           element={<Form />}
         />
+
+        <Route
+          path="/profile"
+          element={<Profile />}
+        />
+
+         <Route
+          path="*"
+          element={<NotFound />}
+        />
       </Routes>
-      
-      
+
     
      
      <Footer/>
