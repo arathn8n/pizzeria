@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom"
 const Navbar = () => {
   const total = 0;
   const token = false;
@@ -13,9 +14,16 @@ const Navbar = () => {
     </button>
     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div className="navbar-nav">
-        <a className="nav-link active" aria-current="page" href="#">Home</a>
-        
-        {token ? <a className="nav-link" href="#">🔓Logout</a> : <a className="nav-link" href="#">🚪Login</a>}
+        <Link to="/" className='nav-link'>
+          Home
+        </Link>
+        <Link to="/register" className='nav-link'>
+          register
+        </Link>
+        <Link to="/login" className='nav-link'>
+          login
+        </Link>
+        {/* {token ? <a className="nav-link" href="#">🔓Logout</a> : <a className="nav-link" href="#">🚪Login</a>} */}
         <a className="nav-link" href="#">🛒total: {total}</a>
       </div>
     </div>

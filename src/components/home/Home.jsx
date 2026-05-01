@@ -1,7 +1,8 @@
 import './home.css'
 import Card from '../card/Card'
 import React, {useEffect, useState} from 'react'
-import {pizzas} from '../data/pizzas'
+
+// import {pizzas} from '../data/pizzas'
 
 const Home = () => {
   
