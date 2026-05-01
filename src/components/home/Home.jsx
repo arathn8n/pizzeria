@@ -6,8 +6,10 @@ import {pizzas} from '../data/pizzas'
 const Home = () => {
   
   // const [datos, setDatos] = useState(pizzas)
+  // la api nos devuelve un objeto entonces iniciamos con objeto vacio para luego insertar los datos de la api
   const [apiPizzas, setApiPizzas] = useState({})
 
+  // para consimir la api
   useEffect(()=>{
     pizzasApi()
 
@@ -35,7 +37,7 @@ const Home = () => {
     <section className='container'>
       <div className='row'>
 
-          
+          {/* los datos de la api se pasan como props */}
             <Card key={apiPizzas.id}
               img={apiPizzas.img}
               name={apiPizzas.name}

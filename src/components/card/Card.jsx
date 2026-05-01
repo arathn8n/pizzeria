@@ -22,11 +22,11 @@ const Card = (props) => {
         <div className="card-body">
           <h5 className="card-title">Pizza {props.name}</h5>
           <ul>
-  🍕 Ingredientes:
-  {props.ingredientes?.map((ingrediente, id) => (
-    <li key={id}>{ingrediente}</li>
-  ))}
-</ul>
+            🍕 Ingredientes:
+            {props.ingredientes?.map((ingrediente, id) => (
+              <li key={id}>{ingrediente}</li>
+            ))}
+          </ul>
 
 
           <p>precio: {props.price}</p>
