@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from "react-router-dom"
 const Navbar = (props) => {
-  
-
+  const [token, setToken] = useState(true);
 
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
@@ -22,10 +21,8 @@ const Navbar = (props) => {
         <Link to="/login" className='nav-link'>
           login
         </Link>
-        <Link to="/profile" className='nav-link'>
-          perfil
-        </Link>
-        {/* {token ? <a className="nav-link" href="#">🔓Logout</a> : <a className="nav-link" href="#">🚪Login</a>} */}
+        {token && <Link to="/profile" className='nav-link'>perfil</Link>}
+        {token && <Link to="/logout" className='nav-link'>Logout</Link>}
         <a className="nav-link" href="#">🛒total: {props.total}</a>
       </div>
     </div>

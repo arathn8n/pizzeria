@@ -12,12 +12,12 @@ import { useState } from "react"
 function App() {
   // se crean aqui los estados
   const [total, setTotal] = useState(0);
-  const [token, setToken] = useState(false);
+  
 
   return (
     <>
     {/* se usa el modulo MyContext para pasarle los valores y como son muchos se usan como objetos */}
-      <MyContext.Provider value={{total, setTotal, token, setToken}}>
+      <MyContext.Provider value={{total, setTotal}}>
         <Navbar total={total}/>
         <Routes>
           <Route
