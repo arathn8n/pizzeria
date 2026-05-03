@@ -37,7 +37,7 @@ const Home = () => {
 
     <section className='container'>
       <div className='row'>
-
+        
           {/* los datos de la api se pasan como props */}
             <Card key={apiPizzas.id}
               img={apiPizzas.img}

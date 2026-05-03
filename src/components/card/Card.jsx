@@ -1,16 +1,21 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './card.css'
+import MyContext from '../MyContextTotal'
 
 const Card = (props) => {
   const [contador, setContador] = useState(0)
+  // usamos el context en card y desestructuramos total y set total
+  const {total, setTotal} = useContext(MyContext)
 
   function handleClickIncrement() {
     setContador(contador + 1)
+    setTotal(total + props.price)
   }
 
   function handleClickDecrement() {
     if (contador > 0) {
       setContador(contador - 1)
+      setTotal(total - props.price)
     }
   }
 

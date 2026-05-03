@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom"
-const Navbar = () => {
-  const total = 0;
-  const token = false;
+const Navbar = (props) => {
+  
 
 
   return (
@@ -27,7 +26,7 @@ const Navbar = () => {
           perfil
         </Link>
         {/* {token ? <a className="nav-link" href="#">🔓Logout</a> : <a className="nav-link" href="#">🚪Login</a>} */}
-        <a className="nav-link" href="#">🛒total: {total}</a>
+        <a className="nav-link" href="#">🛒total: {props.total}</a>
       </div>
     </div>
   </div>
