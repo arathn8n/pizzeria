@@ -12,7 +12,7 @@ import { useState } from "react"
 function App() {
   // se crean aqui los estados
   const [total, setTotal] = useState(0);
-  const [token, setToken] = useState(false);
+  const [token, setToken] = useState(true);
 
   return (
     <>
