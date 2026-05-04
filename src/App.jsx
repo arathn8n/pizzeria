@@ -12,12 +12,12 @@ import { useState } from "react"
 function App() {
   // se crean aqui los estados
   const [total, setTotal] = useState(0);
-  
+  const [token, setToken] = useState(false);
 
   return (
     <>
     {/* se usa el modulo MyContext para pasarle los valores y como son muchos se usan como objetos */}
-      <MyContext.Provider value={{total, setTotal}}>
+      <MyContext.Provider value={{total, setTotal, token, setToken}}>
         <Navbar total={total}/>
         <Routes>
           <Route
@@ -37,7 +37,7 @@ function App() {
 
           <Route
             path="/profile"
-            element={<Profile />}
+            element={token ? <Profile/> : <Form/>}
           />
 
           <Route
