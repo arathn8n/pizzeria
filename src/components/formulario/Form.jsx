@@ -1,6 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './form.css'
+import MyContext from '../MyContextTotal'
+
 const Form = () => {
+  const { setToken } = useContext(MyContext)
+  const navigate = useNavigate()
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -17,28 +22,39 @@ const Form = () => {
     e.preventDefault()
 
     if (password.length < 6) {
-      alert('la contraseña debe ser de al menos 8 digitos')
-    } else {
-      alert('logueado correctamente!')
+      alert('la contraseña debe ser de al menos 6 digitos')
+      return
     }
 
-    // Envía una petición HTTP al backend en la ruta http://localhost:5000/api/auth/login
-   const url = await fetch("http://localhost:5000/api/auth/login", {
-    // Usa el método POST porque estás enviando datos (email y password)
-      method: "POST",
-    // indicas que el contenido es JSON y además mandas un Authorization con un token 
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer token_jwt`,
-      },
-      // conviertes el objeto { email, password } a JSON con JSON.stringify
-      body: JSON.stringify({email, password})
-    });
-    // obtienes los datos en json
-    const data = await url.json()
-    // guardo el token en el almacenamiento local del navegador y persistira aun que se recargue la pagina
-    localStorage.setItem("token", data.token)
-    console.log(data)
+    try {
+      // Envía una petición HTTP al backend en la ruta http://localhost:5000/api/auth/login
+      const res = await fetch("http://localhost:5000/api/auth/login", {
+        // Usa el método POST porque estás enviando datos (email y password)
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        // conviertes el objeto { email, password } a JSON con JSON.stringify
+        body: JSON.stringify({ email, password })
+      });
+
+      // obtienes los datos en json
+      const data = await res.json()
+
+      if (res.ok) {
+        // guardo el token en el almacenamiento local del navegador y persistira aun que se recargue la pagina
+        localStorage.setItem("token", data.token)
+        setToken(true)
+        alert('logueado correctamente!')
+        navigate('/profile')
+      } else {
+        alert(data.error || 'Error al iniciar sesión')
+      }
+      console.log(data)
+    } catch (error) {
+      console.error(error)
+      alert('Error de red al intentar iniciar sesión')
+    }
   }
 
   return (

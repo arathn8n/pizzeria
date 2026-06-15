@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom"
 import './navbar.css'
 import MyContext from '../MyContextTotal'
 const Navbar = (props) => {
-  const {token, setToken} = useContext(MyContext)
+  const { token, setToken } = useContext(MyContext)
 
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
@@ -19,12 +19,15 @@ const Navbar = (props) => {
             </NavLink>
             {/* si es diferente a true entonces que muestre esto */}
             {!token && <NavLink to="/register" className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}>register</NavLink>}
-            
+
             {!token && <NavLink to="/login" className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}>login</NavLink>}
-            
+
             {/* si es true entonces muestra esto */}
             {token && <NavLink to="/profile" className='nav-link'>perfil</NavLink>}
-            {token && <NavLink to="/logout" className='nav-link'>Logout</NavLink>}
+            {token && <button className='nav-link' style={{ background: 'none', border: 'none', cursor: 'pointer' }} onClick={() => {
+              localStorage.removeItem("token")
+              setToken(false)
+            }}>Logout</button>}
             <a className="nav-link" href="#">🛒total: {props.total}</a>
           </div>
         </div>
