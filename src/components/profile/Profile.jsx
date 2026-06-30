@@ -3,7 +3,7 @@ import './profile.css'
 import MyContext from '../MyContextTotal'
 
 const Profile = () => {
-  const { setToken } = useContext(MyContext)
+  const { setToken, setTotal } = useContext(MyContext)
   const [user, setUser] = useState(null)
 
 
@@ -35,6 +35,7 @@ const Profile = () => {
   const handleLogout = () => {
     localStorage.removeItem("token")
     setToken(false)
+    setTotal(0)
   }
 
   return (

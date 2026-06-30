@@ -4,15 +4,17 @@ import MyContext from '../MyContextTotal'
 
 const Card = (props) => {
   const [contador, setContador] = useState(0)
-  // usamos el context en card y desestructuramos total y set total
-  const {total, setTotal} = useContext(MyContext)
+  // usamos el context en card y desestructuramos total, setTotal y token
+  const { total, setTotal, token } = useContext(MyContext)
 
   function handleClickIncrement() {
+    if (!token) return
     setContador(contador + 1)
     setTotal(total + props.price)
   }
 
   function handleClickDecrement() {
+    if (!token) return
     if (contador > 0) {
       setContador(contador - 1)
       setTotal(total - props.price)
@@ -36,11 +38,16 @@ const Card = (props) => {
 
           <p>precio: {props.price}</p>
           <button type="button" className="btn btn-light">Ver más</button>
-          <div className='d-flex'>
-            <button type="button" className="btn btn-primary" onClick={handleClickIncrement}>Añadir</button>
-            <p className='mx-2'>{contador}</p>
-            <button type="button" className="btn btn-danger" onClick={handleClickDecrement}>quitar</button>
+          <div className='d-flex align-items-center mt-2'>
+            <button type="button" className="btn btn-primary" onClick={handleClickIncrement} disabled={!token}>Añadir</button>
+            <p className='mx-2 mb-0'>{contador}</p>
+            <button type="button" className="btn btn-danger" onClick={handleClickDecrement} disabled={!token}>quitar</button>
           </div>
+          {!token && (
+            <p className="text-danger mt-2 mb-0" style={{ fontSize: '0.8rem' }}>
+              * Debes iniciar sesión para comprar.
+            </p>
+          )}
         </div>
 
       </div>

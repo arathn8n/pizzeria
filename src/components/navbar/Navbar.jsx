@@ -2,8 +2,8 @@ import React, { useContext, useState } from 'react'
 import { NavLink } from "react-router-dom"
 import './navbar.css'
 import MyContext from '../MyContextTotal'
-const Navbar = (props) => {
-  const { token, setToken } = useContext(MyContext)
+const Navbar = () => {
+  const { token, setToken, total, setTotal } = useContext(MyContext)
 
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
@@ -27,8 +27,9 @@ const Navbar = (props) => {
             {token && <button className='nav-link' style={{ background: 'none', border: 'none', cursor: 'pointer' }} onClick={() => {
               localStorage.removeItem("token")
               setToken(false)
+              setTotal(0)
             }}>Logout</button>}
-            <a className="nav-link" href="#">🛒total: {props.total}</a>
+            <a className="nav-link" href="#">🛒total: {total}</a>
           </div>
         </div>
       </div>

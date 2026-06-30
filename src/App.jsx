@@ -2,7 +2,7 @@ import Navbar from "./components/navbar/Navbar"
 import Home from './components/home/Home'
 import Footer from './components/footer/Footer'
 import Form from "./components/formulario/Form"
-import Register from "./components/formulario/register"
+import Register from "./components/formulario/Register"
 import NotFound from './components/notFound/NotFound'
 import Profile from './components/profile/Profile'
 import { Route, Routes } from "react-router-dom"
@@ -18,7 +18,7 @@ function App() {
     <>
       {/* se usa el modulo MyContext para pasarle los valores y como son muchos se usan como objetos */}
       <MyContext.Provider value={{ total, setTotal, token, setToken }}>
-        <Navbar total={total} />
+        <Navbar />
         <Routes>
           <Route
             path="/"
